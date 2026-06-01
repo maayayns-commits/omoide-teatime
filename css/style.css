@@ -1,0 +1,505 @@
+body{
+  margin:0;
+  font-family:sans-serif;
+
+  background:url('../img/haikei.png') center/cover no-repeat;
+  background-attachment:fixed;
+
+  min-height:100vh;
+
+  overflow-x:hidden; 
+}
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:30px;
+  padding-top:40px;
+}
+
+/* ロゴ */
+.logo{
+  width:800px;   /* ←ちょい現実的に小さくする */
+  max-width:80%;
+}
+
+.characters{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  align-items:flex-end;
+}
+
+/* 個別サイズ */
+.kira{ width:240px; 
+height:auto;
+position:relative;
+left:-20px;
+}
+
+.pachi{ width:320px; 
+height:auto; 
+position:relative;
+top:80px;
+}
+
+.powa{ width:300px; 
+height:auto
+; position:relative;
+left:-40px;
+top:20px}
+
+.run{ width:190px; 
+height:auto; }
+
+.characters img{
+  cursor:pointer;
+  transition: transform 0.2s;
+  display:inline-block;
+}
+
+/* かわいいぽよん */
+.characters img:hover{
+  transform: scale(1.08);
+  animation: none;
+}
+
+@keyframes pop{
+  0%   { transform: scale(1); }
+  60%  { transform: scale(1.12); }
+  100% { transform: scale(1.06); }
+}
+
+.logo,
+.characters img{
+  filter: drop-shadow(0px 6px 10px rgba(0,0,0,0.25));
+}
+
+@keyframes float_kira {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float_pachi {
+  0%   { transform: translateY(0px) rotate(-2deg); }
+  50%  { transform: translateY(-30px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(-2deg); }
+}
+
+@keyframes float_powa {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float_run {
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-15px) scale(1.05); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+.kira{
+  animation: float_kira 3s ease-in-out infinite;
+}
+
+.pachi{
+  animation: float_pachi 1.8s ease-in-out infinite;
+}
+
+.powa{
+  animation: float_powa 4s ease-in-out infinite;
+}
+
+.run{
+  animation: float_run 2.5s ease-in-out infinite;
+}
+
+.char{
+  position:relative;
+  display:inline-block;
+  text-decoration:none; /* aタグの下線消す */
+}
+
+/* 画像 */
+.char img{
+  cursor:pointer;
+  transition:0.2s;
+  display:block;
+}
+
+/* ぽよん */
+.char:hover img{
+  transform:scale(1.08);
+}
+
+.hint{
+  position:absolute;
+  top:100%;              /* ←キャラの真下に出す */
+  left:50%;
+  transform:translateX(-50%) translateY(8px);
+
+  background:white;
+  padding:6px 12px;
+  border-radius:999px;
+
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+
+  opacity:0;
+  transition:0.2s;
+  pointer-events:none;
+}
+
+/* hoverで出る */
+.char:hover .hint{
+  opacity:1;
+  transform:translateX(-50%) translateY(12px);
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+/* キラキラ */
+.hint-kira{
+  background:rgb(208,251,252
+  );
+  color:rgb(75,167,248);
+}
+
+/* パチパチ */
+.hint-pachi{
+  background:rgb(255,226,231);
+  color:rgb(23,211,151);
+}
+
+/* ぽわぽわ */
+.hint-powa{
+  background:rgb(251,253,174);
+  color:rgb(255,130,130);
+}
+
+/* ルンルン */
+.hint-run{
+  background:rgb(213,254,213);
+  color:rgb(255,94,161);
+}
+
+.menu-open{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:50px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  z-index:10001;
+  color:rgb(255,255,255);
+}
+
+/* 開いた時 */
+body.menu-opened .menu-open{
+  color:black;
+}
+
+.menu-bg{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  pointer-events:none;
+  transition:0.2s;
+  z-index:10000;
+}
+
+.menu-panel{
+  position:fixed;
+  top:0;
+  right:0;
+
+  width:300px;
+  height:100vh;
+
+  background:white;
+  padding:60px 20px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  transform: translateX(100%); /* ←これで完全に隠す */
+  transition:0.3s ease;
+
+  z-index:10002;
+
+}
+
+.menu-panel.open{
+  transform: translateX(0);
+}
+
+
+.menu-bg.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.menu-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:30px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-item{
+  text-decoration:none;
+  color:#333;
+  font-size:18px;
+  font-weight:bold;
+  padding:10px 0;
+}
+
+.line{
+  height:1px;
+  background:#ddd;
+}
+
+.concept{
+  width:1200px;
+  margin:80px auto 40px;
+  text-align:center;
+
+  background: rgba(255, 255, 255, 0.75); /* ←ここ重要 */
+  padding:40px 30px;
+  border-radius:20px;
+
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+.concept h2{
+  font-size:28px;
+  color:rgb(0, 0, 0);
+  margin-bottom:15px;
+}
+
+.concept p{
+  font-size:18px;
+  line-height:1.8;
+  color:#000000;
+}
+
+/* 楽しみ方 */
+.howto{
+  width:800px;
+  margin:60px auto;
+  text-align:center;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+.howto h2{
+  font-size:30px;
+  background-color:rgb(255, 156, 156);
+  margin-bottom:20px;
+  color:rgb(255, 255, 255);
+  border-radius:10px;
+}
+
+.howto ol{
+  text-align:left;
+  display:inline-block;
+  font-size:18px;
+  line-height:2;
+  color:#333;
+}
+
+/* 画像 */
+.showcase{
+  width:900px;
+  margin:60px auto 100px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.showcase img{
+  width:1300px;
+  border-radius:20px;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,0.15));
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:white;
+
+  margin:60px 0 20px;
+
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  letter-spacing:0.5px;
+}
+
+.btn{
+  display: block;
+  margin: 30px auto 0;
+  width: fit-content;
+  margin-top:30px;
+  padding:14px 28px;
+  background:rgb(255, 255, 255);
+  color:rgb(255,156,156);
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  transition:0.2s;
+  text-align:center;
+filter:drop-shadow(0 8px 14px rgba(0,0,0,0.12));
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* カード基準 */
+.concept{
+  position:relative;
+  overflow:visible;
+}
+
+/* 初期：見えない */
+.floating-tea{
+  position:absolute;
+
+  width:450px;
+  height:auto;
+  border-radius:50%;
+
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,.18));
+
+  opacity:0;
+  transform:translateY(50px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
+
+    filter:drop-shadow(0 8px 14px rgba(0,0,0,.18));
+}
+
+/* 見えたら */
+.floating-tea.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* 配置 */
+.tea-a{
+  top:-100px;
+  left:-350px;
+}
+
+.tea-b{
+  top:110px;
+  right:-350px;
+}
+
+.tea-c{
+  top:450px;
+  left:-350px;
+}
+
+.tea-d{
+  bottom:-100px;
+  right:-350px;
+}
+
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+
+.fade-in.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.flavor-toggle{
+  width:100%;
+  text-align:left;
+
+  background:none;
+  border:none;
+
+  font-size:18px;
+  font-weight:bold;
+  color:#333;
+font-family: sans-serif;
+
+  cursor:pointer;
+}
+
+/* 最初閉じる */
+.flavor-menu{
+  max-height:0;
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+
+  transition:.25s ease;
+}
+
+/* 開いた */
+.flavor-menu.open{
+  max-height:300px;
+}
+
+/* 各リンク */
+/* 共通 */
+.flavor-link{
+  display:block;
+
+  text-decoration:none;
+
+  font-family:sans-serif;
+  font-size:18px;
+  font-weight:bold;
+
+  color:#333;
+
+  padding:10px 14px;
+  margin:4px 0;
+
+  border-radius:12px;
+
+  transition:.2s;
+  
+}
+
+/* キラキラ */
+.flavor-kira:hover{
+  color:rgb(75,167,248);
+  background:rgb(208,251,252);
+}
+
+/* パチパチ */
+.flavor-pachi:hover{
+  color:rgb(23,211,151);
+  background:rgb(255,226,231);
+}
+
+/* ぽわぽわ */
+.flavor-powa:hover{
+  color:rgb(255,130,130);
+  background:rgb(251,253,174);
+}
+
+/* ルンルン */
+.flavor-run:hover{
+  color:rgb(255,94,161);
+  background:rgb(213,254,213);
+}
+

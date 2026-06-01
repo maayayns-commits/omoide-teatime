@@ -1,0 +1,258 @@
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#fffafc;
+}
+
+.wrap{
+  width:800px;
+  margin:60px auto;
+  text-align:center;
+}
+
+h1{
+  font-size:34px;
+  color:rgb(255,94,161);
+  margin-bottom:30px;
+}
+
+/* 全体カード */
+.faq-item{
+  background:white;
+  border-radius:20px;
+  margin-bottom:15px;
+  padding:0;
+  box-shadow:0 6px 12px rgba(0,0,0,0.1);
+  text-align:left;
+  overflow:hidden;
+}
+
+/* チェックボックス隠す */
+.faq-item input{
+  display:none;
+}
+
+/* Q */
+.q{
+  display:block;
+  padding:18px 20px;
+  font-weight:700;
+  color:rgb(75,167,248);
+  cursor:pointer;
+  position:relative;
+}
+
+/* Qの右に＋っぽい記号 */
+.q::after{
+  content:"+";
+  position:absolute;
+  right:20px;
+  transition:0.2s;
+}
+
+/* A */
+.a{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  line-height:1.7;
+  color:#333;
+  transition:0.3s ease;
+}
+
+/* 開いたとき */
+.faq-item input:checked ~ .a{
+  max-height:200px;
+  padding:0 20px 20px 20px;
+}
+
+/* 開いたときQ変化 */
+.faq-item input:checked + .q::after{
+  content:"−";
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 28px;
+  background:rgb(255,94,161);
+  color:white;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+  filter:drop-shadow(0 8px 14px rgba(0,0,0,0.12));
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:white;
+
+  margin:60px 0 20px;
+
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  letter-spacing:0.5px;
+}
+
+.menu-open{
+  position:fixed;
+  top:20px;
+  right:20px;
+  font-size:50px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  z-index:10001;
+  color:rgb(255,94,161);
+}
+
+/* 開いた時 */
+body.menu-opened .menu-open{
+  color:black;
+}
+
+.menu-bg{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  pointer-events:none;
+  transition:0.2s;
+  z-index:10000;
+}
+
+.menu-panel{
+  position:fixed;
+  top:0;
+  right:0;
+
+  width:300px;
+  height:100vh;
+
+  background:white;
+  padding:60px 20px;
+
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  transform: translateX(100%); /* ←これで完全に隠す */
+  transition:0.3s ease;
+
+  z-index:10002;
+
+}
+
+.menu-panel.open{
+  transform: translateX(0);
+}
+
+
+.menu-bg.open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.menu-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:30px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.menu-item{
+  text-decoration:none;
+  color:#333;
+  font-size:18px;
+  font-weight:bold;
+  padding:10px 0;
+}
+
+.flavor-toggle{
+  width:100%;
+  text-align:left;
+
+  background:none;
+  border:none;
+
+  font-size:18px;
+  font-weight:bold;
+  color:#333;
+font-family: sans-serif;
+
+  cursor:pointer;
+}
+
+/* 最初閉じる */
+.flavor-menu{
+  max-height:0;
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+
+  transition:.25s ease;
+}
+
+/* 開いた */
+.flavor-menu.open{
+  max-height:300px;
+}
+
+/* 各リンク */
+/* 共通 */
+.flavor-link{
+  display:block;
+
+  text-decoration:none;
+
+  font-family:sans-serif;
+  font-size:18px;
+  font-weight:bold;
+
+  color:#333;
+
+  padding:10px 14px;
+  margin:4px 0;
+
+  border-radius:12px;
+
+  transition:.2s;
+  
+}
+
+/* キラキラ */
+.flavor-kira:hover{
+  color:rgb(75,167,248);
+  background:rgb(208,251,252);
+}
+
+/* パチパチ */
+.flavor-pachi:hover{
+  color:rgb(23,211,151);
+  background:rgb(255,226,231);
+}
+
+/* ぽわぽわ */
+.flavor-powa:hover{
+  color:rgb(255,130,130);
+  background:rgb(251,253,174);
+}
+
+/* ルンルン */
+.flavor-run:hover{
+  color:rgb(255,94,161);
+  background:rgb(213,254,213);
+}
+
+.line{
+  height:1px;
+  background:#ddd;
+}
