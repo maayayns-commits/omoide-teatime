@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うれしさルンルンフレーバー</title>
+<link rel="stylesheet" href="css/runrun.css">
+</head>
+
+<body>
+  <div class="menu-wrap">
+
+  <button id="menuOpen" class="menu-open">☰</button>
+
+  <div id="menuBg" class="menu-bg"></div>
+
+  <div id="menuPanel" class="menu-panel">
+
+  <button id="menuClose" class="menu-close">×</button>
+
+  <button id="flavorToggle" class="menu-item flavor-toggle">
+    フレーバー ▼
+  </button>
+
+  <div id="flavorMenu" class="flavor-menu">
+
+    <a href="loading.html?next=kirakira.html"
+   class="flavor-link flavor-kira"
+   onclick="localStorage.setItem('loadingFlavor','kirakira')">
+  心がキラキラフレーバー
+</a>
+
+<a href="loading.html?next=pachipachi.html"
+   class="flavor-link flavor-pachi"
+   onclick="localStorage.setItem('loadingFlavor','pachipachi')">
+  たのしさパチパチフレーバー
+</a>
+
+<a href="loading.html?next=powapowa.html"
+   class="flavor-link flavor-powa"
+   onclick="localStorage.setItem('loadingFlavor','powapowa')">
+  しあわせぽわぽわフレーバー
+</a>
+
+<a href="loading.html?next=runrun.html"
+   class="flavor-link flavor-run"
+   onclick="localStorage.setItem('loadingFlavor','runrun')">
+  うれしさルンルンフレーバー
+</a>
+
+  </div>
+
+  <div class="line"></div>
+
+  <a href="company.html" class="menu-item">
+    会社概要
+  </a>
+
+  <div class="line"></div>
+
+  <a href="faq.html" class="menu-item">
+    よくある質問
+  </a>
+
+  <div class="line"></div>
+
+  <a href="index.html" class="menu-item">
+    トップページへ
+  </a>
+
+</div>
+
+<img src="run/rrlogo.png" class="logo">
+<img src="run/r1.png" class="hero-img">
+<div class="wrap">
+
+  <!-- 1枚目 -->
+  <div class="card product-card">
+
+    <h1>うれしさルンルンフレーバー</h1>
+
+    <p class="price">300円＋税</p>
+
+    <p class="text1">
+            鮮やかな青色が特徴のバタフライピーティー。
+            <br>お湯を注ぐと時間とともに色合いが変化し、美しいグラデーションを楽しめます。
+            <br>味わいだけでなく、目でも楽しめる特別なティータイムをお届けします。
+    </p>
+
+  </div>
+
+  <!-- 2枚目 -->
+  <div class="card grid-card">
+
+    <img src="run/r3.png" class="corner left-top">
+    <img src="run/r4.png" class="corner right-bottom">
+
+    <h2>グラデーションのしくみ</h2>
+
+    <p class="text">
+            バタフライピーには、アントシアニンという色の成分が入っています。
+            <br>この成分は、液体が酸性になると色が変わる性質があります。
+            <br>クエン酸カプセルが溶けていくと、少しずつ酸性になり、青から紫へ変化します。
+
+
+  </div>
+
+
+  <!-- 3枚目 -->
+<div class="card char-card">
+
+  <div class="img-wrap">
+
+    <!-- ぬいぐるみ or キャラ -->
+    <img src="run/e.png" class="char-img" id="charImg">
+
+    <!-- キラキラ -->
+    <div class="effect-layer" id="effectLayer"></div>
+
+  </div>
+
+  <!-- 文字 -->
+  <div class="name-box" id="nameBox">パピルン</div>
+
+  <p class="text" id="desc">とっても素直で、うれしい時は音楽に合わせてルンルン踊る。
+    <br>そのダンスで、あなたにポジティブ元気パワーを与えてくれる。</p>
+
+
+  <!-- マーク -->
+
+  <p class="reward-text" id="rewardText">
+    パッケージ裏のマークを30枚あつめると、<br>パピルンぬいぐるみが必ずもらえる！
+  </p>
+
+  <img src="run/rmark.png" class="mark-img" id="markImg">
+
+  <button class="change-btn" onclick="changeChar()">
+    変身！
+  </button>
+
+</div>
+<a href="index.html" class="top-btn">
+    トップページへ
+
+</a>
+<footer class="footer">
+  株式会社アフタヌーン　Copyright © 2026 All rights reserved.
+</footer>
+
+<script>
+
+let changed = false;
+
+function changeChar(){
+
+  const img = document.getElementById("charImg");
+  const name = document.getElementById("nameBox");
+  const desc = document.getElementById("desc");
+  const mark = document.getElementById("markImg");
+  const reward = document.getElementById("rewardText");
+  const effect = document.getElementById("effectLayer");
+
+  changed = !changed;
+
+  for(let i = 0; i < 60; i++){
+
+    const s = document.createElement("div");
+
+    const colors = ["white","purple","green"];
+    s.classList.add("spark", colors[Math.floor(Math.random()*3)]);
+
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 80 + Math.random() * 300;
+
+    s.style.setProperty("--x", Math.cos(angle) * dist + "px");
+    s.style.setProperty("--y", Math.sin(angle) * dist + "px");
+
+    const size = 6 + Math.random() * 6;
+    s.style.width = size + "px";
+    s.style.height = size + "px";
+
+    effect.appendChild(s);
+
+    setTimeout(() => s.remove(), 800);
+  }
+
+  if(changed){
+
+  img.src = "run/rnui.png";
+  name.style.display = "none";
+
+  desc.style.display = "none";
+
+  mark.style.display = "block";
+
+  reward.style.display = "block";
+
+  img.classList.remove("bounce");
+  void img.offsetWidth;
+  img.classList.add("bounce");
+
+}else{
+
+  img.src = "run/e.png";
+
+  name.style.display = "block";
+
+  desc.style.display = "block";
+
+  desc.innerHTML =
+    "心の中の“ときめき”を見つけるのが得意。<br>あなたのティーカップに魔法をかけて、ティータイムをもっと特別にしてくれる。";
+
+  mark.style.display = "none";
+
+  reward.style.display = "none";
+}
+}
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("menuOpen");
+  const closeBtn = document.getElementById("menuClose");
+  const panel = document.getElementById("menuPanel");
+  const bg = document.getElementById("menuBg");
+
+  openBtn.addEventListener("click", () => {
+  panel.classList.add("open");
+  bg.classList.add("open");
+  document.body.classList.add("menu-opened"); // ←追加
+});
+
+closeBtn.addEventListener("click", () => {
+  panel.classList.remove("open");
+  bg.classList.remove("open");
+  document.body.classList.remove("menu-opened"); // ←追加
+});
+
+bg.addEventListener("click", () => {
+  panel.classList.remove("open");
+  bg.classList.remove("open");
+  document.body.classList.remove("menu-opened"); // ←追加
+});
+
+});
+
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+cards.forEach(card => {
+  observer.observe(card);
+});
+
+</script>
+
+<script>
+const flavorToggle =
+  document.getElementById("flavorToggle");
+
+const flavorMenu =
+  document.getElementById("flavorMenu");
+
+flavorToggle.addEventListener("click", () => {
+
+  flavorMenu.classList.toggle("open");
+
+  if (flavorMenu.classList.contains("open")) {
+    flavorToggle.textContent = "フレーバー ▲";
+  } else {
+    flavorToggle.textContent = "フレーバー ▼";
+  }
+
+});
+</script>
+
+</body>
+
+</html>

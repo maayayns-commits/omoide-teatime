@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>会社概要｜おもいでティータイム</title>
+<link rel="stylesheet" href="css/company.css">
+</head>
+
+<body>
+
+<div class="menu-wrap">
+
+  <button id="menuOpen" class="menu-open">☰</button>
+
+  <div id="menuBg" class="menu-bg"></div>
+
+  <div id="menuPanel" class="menu-panel">
+
+  <button id="menuClose" class="menu-close">×</button>
+
+  <button id="flavorToggle" class="menu-item flavor-toggle">
+    フレーバー ▼
+  </button>
+
+  <div id="flavorMenu" class="flavor-menu">
+
+    <a href="loading.html?next=kirakira.html"
+   class="flavor-link flavor-kira"
+   onclick="localStorage.setItem('loadingFlavor','kirakira')">
+  心がキラキラフレーバー
+</a>
+
+<a href="loading.html?next=pachipachi.html"
+   class="flavor-link flavor-pachi"
+   onclick="localStorage.setItem('loadingFlavor','pachipachi')">
+  たのしさパチパチフレーバー
+</a>
+
+<a href="loading.html?next=powapowa.html"
+   class="flavor-link flavor-powa"
+   onclick="localStorage.setItem('loadingFlavor','powapowa')">
+  しあわせぽわぽわフレーバー
+</a>
+
+<a href="loading.html?next=runrun.html"
+   class="flavor-link flavor-run"
+   onclick="localStorage.setItem('loadingFlavor','runrun')">
+  うれしさルンルンフレーバー
+</a>
+
+  </div>
+
+  <div class="line"></div>
+
+  <a href="company.html" class="menu-item">
+    会社概要
+  </a>
+
+  <div class="line"></div>
+
+  <a href="faq.html" class="menu-item">
+    よくある質問
+  </a>
+
+  <div class="line"></div>
+
+  <a href="index.html" class="menu-item">
+    トップページへ
+  </a>
+
+</div>
+
+<div class="wrap">
+
+  <h1>会社概要</h1>
+
+  <div class="card">
+
+    <div class="row">
+      <div class="label">会社名</div>
+      <div class="value">株式会社アフタヌーン</div>
+    </div>
+
+    <div class="row">
+      <div class="label">コンセプト</div>
+      <div class="value">
+        日常の中に「ときめき」を生み出すティータイム体験のデザイン
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">所在地</div>
+      <div class="value">東京都八王子市鑓水２丁目１７２３</div>
+    </div>
+
+    <div class="row">
+      <div class="label">事業内容</div>
+      <div class="value">
+        ・フレーバーティー企画・開発<br>
+        ・キラキラ体験デザイン<br>
+        ・キャラクターIP制作
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">設立</div>
+      <div class="value">2026年・4月</div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="btn">トップページへ</a>
+
+</div>
+<footer class="footer">
+  株式会社アフタヌーン　Copyright © 2026 All rights reserved.
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("menuOpen");
+  const closeBtn = document.getElementById("menuClose");
+  const panel = document.getElementById("menuPanel");
+  const bg = document.getElementById("menuBg");
+
+  openBtn.addEventListener("click", () => {
+    panel.classList.add("open");
+    bg.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+  bg.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+});
+</script>
+
+<script>
+const flavorToggle =
+  document.getElementById("flavorToggle");
+
+const flavorMenu =
+  document.getElementById("flavorMenu");
+
+flavorToggle.addEventListener("click", () => {
+
+  flavorMenu.classList.toggle("open");
+
+  if (flavorMenu.classList.contains("open")) {
+    flavorToggle.textContent = "フレーバー ▲";
+  } else {
+    flavorToggle.textContent = "フレーバー ▼";
+  }
+
+});
+</script>
+
+</body>
+</html>

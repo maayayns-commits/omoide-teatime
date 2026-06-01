@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>おもいでティータイム</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<div class="menu-wrap">
+
+  <button id="menuOpen" class="menu-open">☰</button>
+
+  <div id="menuBg" class="menu-bg"></div>
+
+  <div id="menuPanel" class="menu-panel">
+
+  <button id="menuClose" class="menu-close">×</button>
+
+  <button id="flavorToggle" class="menu-item flavor-toggle">
+    フレーバー ▼
+  </button>
+
+  <div id="flavorMenu" class="flavor-menu">
+
+    <a href="loading.html?next=kirakira.html"
+   class="flavor-link flavor-kira"
+   onclick="localStorage.setItem('loadingFlavor','kirakira')">
+  心がキラキラフレーバー
+</a>
+
+<a href="loading.html?next=pachipachi.html"
+   class="flavor-link flavor-pachi"
+   onclick="localStorage.setItem('loadingFlavor','pachipachi')">
+  たのしさパチパチフレーバー
+</a>
+
+<a href="loading.html?next=powapowa.html"
+   class="flavor-link flavor-powa"
+   onclick="localStorage.setItem('loadingFlavor','powapowa')">
+  しあわせぽわぽわフレーバー
+</a>
+
+<a href="loading.html?next=runrun.html"
+   class="flavor-link flavor-run"
+   onclick="localStorage.setItem('loadingFlavor','runrun')">
+  うれしさルンルンフレーバー
+</a>
+
+  </div>
+
+  <div class="line"></div>
+
+  <a href="company.html" class="menu-item">
+    会社概要
+  </a>
+
+  <div class="line"></div>
+
+  <a href="faq.html" class="menu-item">
+    よくある質問
+  </a>
+
+  <div class="line"></div>
+
+  <a href="index.html" class="menu-item">
+    トップページへ
+  </a>
+
+</div>
+
+<div class="hero">
+
+  <!-- ロゴ -->
+  <img src="img/logo.png" class="logo">
+
+  <!-- キャラクター -->
+  <div class="characters">
+
+    <a href="kirakira.html" class="char go-loading" data-flavor="kirakira">
+      <img src="kira/a.png" class="kira">
+      <div class="hint hint-kira">クリックして商品ページへ</div>
+    </a>
+
+    <a href="pachipachi.html"class="char go-loading" data-flavor="pachipachi">
+      <img src="pachi/i.png" class="pachi">
+      <div class="hint hint-pachi">クリックして商品ページへ</div>
+    </a>
+
+    <a href="powapowa.html"class="char go-loading" data-flavor="powapowa">
+      <img src="powa/u.png" class="powa">
+      <div class="hint hint-powa">クリックして商品ページへ</div>
+    </a>
+
+    <a href="runrun.html"class="char go-loading" data-flavor="runrun">
+      <img src="run/e.png" class="run">
+      <div class="hint hint-run">クリックして商品ページへ</div>
+    </a>
+  </div>
+
+  </div>
+
+<!-- コンセプト -->
+<div class="concept">
+
+  <!-- 飾り紅茶 -->
+  <img src="kira/ktea.png" class="floating-tea tea-a" alt="">
+  <img src="pachi/ptea.png" class="floating-tea tea-b" alt="">
+  <img src="powa/ptea.png" class="floating-tea tea-c" alt="">
+  <img src="run/rtea.png" class="floating-tea tea-d" alt="">
+
+  <h2 class="fade-in">concept</h2>
+
+  <p class="fade-in">
+    たのしかったこと、うれしかったこと。
+<br>その瞬間のきらめきは、時間がたつほどやさしく薄れていってしまう。
+<br>でも本当は、それを「心の中だけ」にしまっておくのは、少しもったいないのかもしれない。
+
+<br><br>もっと深く、もっとあたたかく、思い出を心に刻みたい。
+<br>そんなあなたのために生まれたのが「おもいでティータイム」です。
+
+<br><br>このティーは、ただ飲むだけのものではありません。
+<br>あなたの気持ちにそっと寄り添い、その瞬間の感情をやさしく引き出し、味わいとして形にしていく“フレーバー体験”です。
+<br>ひとくちごとに、記憶がふわりとほどけて、あの日の気持ちが静かに戻ってくるような時間をつくります。
+
+<br><br>そして、ティータイムそのものを特別な体験へ。
+<br>ただ過ぎていく時間ではなく、「残る時間」へと変えていきます。
+
+<br><br>ティータグには、その時の気持ちや思い出が記録されていきます。
+<br>それを見返すことで、ふとした瞬間に大切な記憶を思い出し、心をあたため直すことができます。
+
+  <h2 class="fade-in">target</h2>
+    <p class="fade-in">この商品は、初めてのティータイムを迎える小さなお子様にもおすすめです。
+    <br>はじめての“お茶の時間”を、ただの体験ではなく、心に残る特別な思い出として深く刻むことができます。
+    <br>やさしいフレーバーと世界観の中で、「楽しい」「うれしい」という感情を、より豊かに感じられる設計になっています。
+
+    <br><br>また、大人の方にもおすすめです。
+    <br>忙しい日々の中で忘れかけていた感情や、大切にしたい思い出をそっと思い出させてくれる時間として、
+    <br>静かで濃厚なティータイムを楽しむことができます。
+  </p>
+
+</div>
+
+<!-- 楽しみ方 -->
+<div class="howto fade-in">
+
+  <h2>おもいでティータイムの楽しみ方</h2>
+
+
+
+</div>
+
+
+<!-- 画像エリア -->
+<div class="showcase fade-in">
+
+  <img src="img/tejun.png" alt="">
+
+</div>
+</div>
+
+  <a href="index.html" class="btn fade-in">ページトップへ</a>
+
+</div>
+
+<footer class="footer">
+  株式会社アフタヌーン　Copyright © 2026 All rights reserved.
+</footer>
+
+
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("menuOpen");
+  const closeBtn = document.getElementById("menuClose");
+  const panel = document.getElementById("menuPanel");
+  const bg = document.getElementById("menuBg");
+
+  openBtn.addEventListener("click", () => {
+    panel.classList.add("open");
+    bg.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+  bg.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+});
+</script>
+
+<script>
+document.querySelectorAll(".go-loading").forEach(link => {
+
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const flavor = link.dataset.flavor;
+    const url = link.href;
+
+    localStorage.setItem("loadingFlavor", flavor);
+
+    window.location.href = "loading.html?next=" + encodeURIComponent(url);
+  });
+
+});
+</script>
+
+<script>
+const teas = document.querySelectorAll(".floating-tea");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+
+  });
+},{
+  threshold:0.35
+});
+
+teas.forEach(tea => {
+  observer.observe(tea);
+});
+
+const fades = document.querySelectorAll(".fade-in");
+
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+
+  });
+},{
+  threshold:0.2
+});
+
+fades.forEach(el => {
+  fadeObserver.observe(el);
+});
+</script>
+
+<script>
+const flavorToggle =
+  document.getElementById("flavorToggle");
+
+const flavorMenu =
+  document.getElementById("flavorMenu");
+
+flavorToggle.addEventListener("click", () => {
+
+  flavorMenu.classList.toggle("open");
+
+  if (flavorMenu.classList.contains("open")) {
+    flavorToggle.textContent = "フレーバー ▲";
+  } else {
+    flavorToggle.textContent = "フレーバー ▼";
+  }
+
+});
+</script>
+
+
+
+</div>
+</body>
+</html>
+

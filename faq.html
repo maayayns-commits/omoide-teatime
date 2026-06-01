@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>よくある質問｜おもいでティータイム</title>
+<link rel="stylesheet" href="css/faq.css">
+</head>
+
+<body>
+
+  <div class="menu-wrap">
+
+  <button id="menuOpen" class="menu-open">☰</button>
+
+  <div id="menuBg" class="menu-bg"></div>
+
+  <div id="menuPanel" class="menu-panel">
+
+  <button id="menuClose" class="menu-close">×</button>
+
+  <button id="flavorToggle" class="menu-item flavor-toggle">
+    フレーバー ▼
+  </button>
+
+  <div id="flavorMenu" class="flavor-menu">
+
+    <a href="loading.html?next=kirakira.html"
+   class="flavor-link flavor-kira"
+   onclick="localStorage.setItem('loadingFlavor','kirakira')">
+  心がキラキラフレーバー
+</a>
+
+<a href="loading.html?next=pachipachi.html"
+   class="flavor-link flavor-pachi"
+   onclick="localStorage.setItem('loadingFlavor','pachipachi')">
+  たのしさパチパチフレーバー
+</a>
+
+<a href="loading.html?next=powapowa.html"
+   class="flavor-link flavor-powa"
+   onclick="localStorage.setItem('loadingFlavor','powapowa')">
+  しあわせぽわぽわフレーバー
+</a>
+
+<a href="loading.html?next=runrun.html"
+   class="flavor-link flavor-run"
+   onclick="localStorage.setItem('loadingFlavor','runrun')">
+  うれしさルンルンフレーバー
+</a>
+
+  </div>
+
+  <div class="line"></div>
+
+  <a href="company.html" class="menu-item">
+    会社概要
+  </a>
+
+  <div class="line"></div>
+
+  <a href="faq.html" class="menu-item">
+    よくある質問
+  </a>
+
+  <div class="line"></div>
+
+  <a href="index.html" class="menu-item">
+    トップページへ
+  </a>
+
+</div>
+
+<div class="wrap">
+
+  <h1>よくある質問</h1>
+
+  <!-- ① -->
+  <div class="faq-item">
+
+    <input type="checkbox" id="q1">
+    <label for="q1" class="q">どんな時に飲むといいですか？</label>
+
+    <div class="a">
+      うれしいことがあったとき、誰かと話したいときなど、おもいでを深く味わいたい時におすすめです。
+    </div>
+
+  </div>
+
+  <!-- ② -->
+  <div class="faq-item">
+
+    <input type="checkbox" id="q2">
+    <label for="q2" class="q">フレーバーはどうやって選ぶといいですか？</label>
+
+    <div class="a">
+      その日の気分で自然に選ばれるように設計されています。直感で惹かれたフレーバーが、今のあなたにぴったりです。
+    </div>
+
+  </div>
+
+  <!-- ③ -->
+  <div class="faq-item">
+
+    <input type="checkbox" id="q3">
+    <label for="q3" class="q">ラメは体に入っても大丈夫？</label>
+
+    <div class="a">
+      食用グリッターを使用しているので問題ありません。
+    </div>
+
+  </div>
+
+  <!-- ④ -->
+  <div class="faq-item">
+
+    <input type="checkbox" id="q4">
+    <label for="q4" class="q">4つのフレーバーの違いは？</label>
+
+    <div class="a">
+      お茶の種類やお湯が注いだ時のワクワクする仕掛けがそれぞれ異なります。詳しくは商品ページへ。
+    </div>
+
+  </div>
+
+  <!-- ⑤ -->
+  <div class="faq-item">
+
+    <input type="checkbox" id="q5">
+    <label for="q5" class="q">ぬいぐるみはどうすればもらえますか？</label>
+
+    <div class="a">
+      パッケージ裏のマークを30枚集め、ハガキなどに貼り会社宛にお送りください。
+    </div>
+
+  </div>
+
+  <a href="index.html" class="btn">トップページへ</a>
+
+</div>
+<footer class="footer">
+  株式会社アフタヌーン　Copyright © 2026 All rights reserved.
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const openBtn = document.getElementById("menuOpen");
+  const closeBtn = document.getElementById("menuClose");
+  const panel = document.getElementById("menuPanel");
+  const bg = document.getElementById("menuBg");
+
+  openBtn.addEventListener("click", () => {
+    panel.classList.add("open");
+    bg.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+  bg.addEventListener("click", () => {
+    panel.classList.remove("open");
+    bg.classList.remove("open");
+  });
+
+});
+</script>
+
+<script>
+const flavorToggle =
+  document.getElementById("flavorToggle");
+
+const flavorMenu =
+  document.getElementById("flavorMenu");
+
+flavorToggle.addEventListener("click", () => {
+
+  flavorMenu.classList.toggle("open");
+
+  if (flavorMenu.classList.contains("open")) {
+    flavorToggle.textContent = "フレーバー ▲";
+  } else {
+    flavorToggle.textContent = "フレーバー ▼";
+  }
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+<link rel="stylesheet" href="css/loading.css">
+</head>
+<body id="loadingBody">
+
+<div class="loading-wrap">
+
+  <!-- 上キャラ -->
+  <img id="loadingImg" class="loading-img">
+
+  <!-- ロゴ -->
+  <img id="loadingLogo" class="loading-logo">
+
+  <!-- ゲージ -->
+  <div class="gauge">
+
+    <div id="bar" class="bar"></div>
+
+    <div id="mark" class="mark"></div>
+
+  </div>
+
+  <!-- 下 -->
+  <div id="loadingText" class="loading-text">
+  Now Loading...
+</div>
+
+</div>
+
+<script>
+
+const flavor =
+localStorage.getItem("loadingFlavor");
+
+const data = {
+
+  kirakira:{
+    img:"kira/a.png",
+
+    logo:"kira/kklogo.png",
+
+    bg:"rgb(210,252,255)",
+
+    color:"rgb(255,229,0)",
+
+    mark:"kira/kkmark.png",
+
+    text:"Now Loading...",
+
+    textColor:"rgb(0,170,255)"
+  },
+
+  pachipachi:{
+    img:"pachi/i.png",
+
+    logo:"pachi/pplogo.png",
+
+    bg:"rgb(255,225,230)",
+
+    color:"rgb(213,254,214)",
+
+    mark:"pachi/ppmark.png",
+
+    text:"Now Loading...",
+
+    textColor:"rgb(24,210,152)"
+  },
+
+  powapowa:{
+    img:"powa/u.png",
+
+    logo:"powa/pplogo.png",
+
+    bg:"rgb(253,254,175)",
+
+    color:"rgb(254,225,230)",
+
+    mark:"powa/ppmark.png",
+
+    text:"Now Loading...",
+
+    textColor:"rgb(254,133,117)"
+  },
+
+  runrun:{
+    img:"run/e.png",
+
+    logo:"run/rrlogo.png",
+
+    bg:"rgb(213,254,214)",
+
+    color:"rgb(220,211,254)",
+
+    mark:"run/rrmark.png",
+
+    text:"Now Loading...",
+
+    textColor:"rgb(245,101,160)"
+  }
+
+};
+
+const current = data[flavor];
+
+document.getElementById("loadingImg").src =
+current.img;
+
+document.getElementById("loadingLogo").src =
+current.logo;
+
+/* 背景色 */
+document.getElementById("loadingBody").style.background =
+current.bg;
+
+/* ゲージ */
+document.getElementById("bar").style.background =
+current.color;
+
+/* 丸 */
+document.getElementById("mark").style.backgroundImage =
+`url(${current.mark})`;
+
+/* 下文字 */
+document.getElementById("loadingText").textContent =
+current.text;
+
+document.getElementById("loadingText").style.color =
+current.textColor;
+
+
+const next =
+new URLSearchParams(location.search).get("next");
+
+setTimeout(() => {
+  location.href = next;
+},2200);
+
+
+</script>
+
+<script>
+const flavorToggle =
+  document.getElementById("flavorToggle");
+
+const flavorMenu =
+  document.getElementById("flavorMenu");
+
+flavorToggle.addEventListener("click", () => {
+
+  flavorMenu.classList.toggle("open");
+
+  if (flavorMenu.classList.contains("open")) {
+    flavorToggle.textContent = "フレーバー ▲";
+  } else {
+    flavorToggle.textContent = "フレーバー ▼";
+  }
+
+});
+</script>
+
+
+</body>
+</html>
